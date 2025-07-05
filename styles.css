@@ -318,6 +318,31 @@ a:active {
     line-height: 1.5;
     color: #ccc;
     opacity: 0.9;
+    margin-bottom: 1rem;
+  }
+  
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .tech-tag {
+    background: rgba(255, 75, 219, 0.2);
+    color: #ff4bdb;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 75, 219, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .tech-tag:hover {
+    background: rgba(255, 75, 219, 0.3);
+    border-color: rgba(255, 75, 219, 0.5);
+    transform: translateY(-1px);
   }
 .education {
   position: relative;
