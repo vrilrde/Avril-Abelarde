@@ -12,13 +12,48 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 </head>
 <body>
+  <div class="grain-overlay"></div>
+
+  <!-- SVG Filter for Glass Distortion Effect -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0; top: -999px; left: -999px;">
+    <defs>
+      <filter id="glassDistortion">
+        <feImage xlink:href="data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='50' y='50' width='100' height='100' rx='25' fill='%230001' /%3E%3Crect x='50' y='50' width='100' height='100' rx='25' fill='%23FFF' style='filter:blur(5px)' /%3E%3C/svg%3E" x="0%" y="0%" width="100%" height="100%" result="darkEdge" />
+        <feImage xlink:href="data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='50' y='50' width='100' height='100' rx='25' fill='%23FFF1' style='filter:blur(15px)' /%3E%3C/svg%3E" x="0%" y="0%" width="100%" height="100%" result="lightEdge" />
+        <feImage xlink:href="data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='50' y='50' width='100' height='100' rx='25' fill='%23000' /%3E%3C/svg%3E" x="0%" y="0%" width="100%" height="100%" result="shapeMask" />
+        <feImage xlink:href="data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='gradient1' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23000'/%3E%3Cstop offset='100%25' stop-color='%2300F'/%3E%3C/linearGradient%3E%3ClinearGradient id='gradient2' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23000'/%3E%3Cstop offset='100%25' stop-color='%230F0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='0' y='0' width='200' height='200' rx='25' fill='%237F7F7F' /%3E%3Crect x='50' y='50' width='100' height='100' rx='25' fill='%23000' /%3E%3Crect x='50' y='50' width='100' height='100' rx='25' fill='url(%23gradient1)' style='mix-blend-mode: screen' /%3E%3Crect x='50' y='50' width='100' height='100' rx='25' fill='url(%23gradient2)' style='mix-blend-mode: screen' /%3E%3Crect x='50' y='50' width='100' height='100' rx='25' fill='%237F7F7FBB' style='filter:blur(5px)' /%3E%3C/svg%3E" x="0%" y="0%" width="100%" height="100%" result="displacement" />
+        
+        <feGaussianBlur stdDeviation="0.7" in="SourceGraphic" result="preblur" />
+        
+        <!-- Red channel displacement -->
+        <feDisplacementMap in2="displacement" in="preblur" scale="-148" xChannelSelector="B" yChannelSelector="G" />
+        <feColorMatrix type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="dispR" />
+        
+        <!-- Green channel displacement -->
+        <feDisplacementMap in2="displacement" in="preblur" scale="-150" xChannelSelector="B" yChannelSelector="G" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="dispG" />
+        
+        <!-- Blue channel displacement -->
+        <feDisplacementMap in2="displacement" in="preblur" scale="-152" xChannelSelector="B" yChannelSelector="G" />
+        <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="dispB" />
+        
+        <!-- Combine channels -->
+        <feBlend in2="dispG" mode="screen"/>
+        <feBlend in2="dispR" mode="screen"/>
+        <feGaussianBlur stdDeviation="0.0" />
+        <feBlend in2="lightEdge" mode="screen"/>
+        <feBlend in2="darkEdge" mode="multiply"/>
+        <feComposite in2="shapeMask" operator="in"/>
+      </filter>
+    </defs>
+  </svg>
 
   <header class="site-header">
     <a href="#" class="header-brand">
       <strong>VRI</strong>
     </a>  
   
-    <div class="header-right">
+    <div class="header-center">
       <nav class="header-links">
         <a href="https://github.com/vrilrde">
           <span class="link-text">github</span>
@@ -35,16 +70,16 @@
       </nav> 
     </div>
 
-      <a href="mailto:angeliqueabelarde@gmail.com" class="header-contact">
-        <span class="contact-text">angeliqueabelarde@gmail.com</span>
-        <i class="fas fa-envelope"></i>
-      </a> 
+    <a href="mailto:angeliqueabelarde@gmail.com" class="header-contact">
+      <span class="contact-text">angeliqueabelarde@gmail.com</span>
+      <i class="fas fa-envelope"></i>
+    </a> 
   </header>
   
   <section class="hero slide-in-right" data-aos="fade-up">
     <h1>
       <span data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
-        I’m Avril — a Manila-based
+        I'm Avril — a Manila-based
       </span>
       <br />
       <span data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
@@ -103,54 +138,116 @@
   </section>
   <section id="next-section" class="section" data-aos="fade-up" data-aos-delay="100">
     <h2 class="section-heading">Technical Skills</h2>
-    <ul class="skills-list">
-      <li><strong>Web Dev:</strong> HTML, CSS, JS, TypeScript, XAMPP, Vercel, TailwindCSS, ui/shadcn, MySQL WorkBench</li>
-      <li><strong>Mobile Dev:</strong> React Native, Expo Go, Ionic, Angular</li>
-      <li><strong>Backend:</strong> PHP, MySQL</li>
-      <li><strong>No Code:</strong> Wix, FlutterFlow</li>
-      <li><strong>Languages:</strong> C++, Java, Python</li>
-      <li><strong>Game Dev:</strong> Blender</li>
-      <li><strong>Version Control:</strong> Git, GitHub</li>
-      <li><strong>UI/UX:</strong> Figma</li>
-      <li><strong>Multimedia:</strong> After Effects, Premiere Pro, Filmora, Sony Vegas, Photoshop</li>
-      <li><strong>OS:</strong> Windows 11/10/8/7/XP</li>
-      <li><strong>Collab Tools:</strong> Miro, Teams, Zoom, Notion</li>
-    </ul>
+    
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Frontend Development</h3>
+        <p>HTML, CSS, JavaScript, TypeScript, React Native, TailwindCSS, ui/shadcn</p>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Backend & Database</h3>
+        <p>PHP, MySQL, XAMPP, MySQL WorkBench</p>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Mobile Development</h3>
+        <p>React Native, Expo Go, Ionic, Angular</p>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Design & Creative</h3>
+        <p>Figma, Photoshop, After Effects, Premiere Pro, Blender</p>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Development Tools</h3>
+        <p>Git, GitHub, Vercel, Wix, FlutterFlow</p>
+      </div>
+      
+      <div class="skill-group">
+        <h3>Programming Languages</h3>
+        <p>JavaScript, TypeScript, Python, Java, C++</p>
+      </div>
+    </div>
   </section>
   
 
 <section class="section projects" data-aos="fade-up" data-aos-delay="200">
   <h2 class="section-heading">Projects</h2>
   
-  <div class="project-cards">
-    <div class="project-card">
-      <h3>Alerto MNL</h3>
-      <p>Safety and awareness mobile application for Manila citizens featuring SOS button functionality that sends alerts to police officers within 3km radius, integrated crime mapping per station using Mapbox API with real-time data visualization.</p>
+  <div class="bento-grid">
+    <div class="bento-item bento-large" data-project="alerto">
+      <div class="bento-content">
+        <span class="project-type">Mobile App</span>
+        <h3>Alerto MNL</h3>
+        <p>Safety and awareness mobile application for Manila citizens featuring SOS button functionality that sends alerts to police officers within 3km radius.</p>
+        <div class="project-tech">
+          <span>React Native</span>
+          <span>Mapbox API</span>
+          <span>Real-time Data</span>
+        </div>
+      </div>
     </div>
     
-    <div class="project-card">
-      <h3>AppointMate (Booking Website)</h3>
-      <p>Conflict-free booking system that simplifies scheduling, communication, and personal time blocking.</p>
+    <div class="bento-item bento-medium" data-project="appointmate">
+      <div class="bento-content">
+        <span class="project-type">Web App</span>
+        <h3>AppointMate</h3>
+        <p>Conflict-free booking system that simplifies scheduling and communication.</p>
+        <div class="project-tech">
+          <span>Full Stack</span>
+          <span>Booking System</span>
+        </div>
+      </div>
     </div>
     
-    <div class="project-card">
-      <h3>Intelligloves Prototype</h3>
-      <p>Assistive gloves, prototyped in Blender, enhancing communication for individuals with hearing &amp; speech impairments.</p>
+    <div class="bento-item bento-small" data-project="intelligloves">
+      <div class="bento-content">
+        <span class="project-type">3D Design</span>
+        <h3>Intelligloves</h3>
+        <p>Assistive gloves prototype for hearing & speech impairments.</p>
+        <div class="project-tech">
+          <span>Blender</span>
+        </div>
+      </div>
     </div>
     
-    <div class="project-card">
-      <h3>Inventory Management System (Front-End)</h3>
-      <p>Real-time web-based solution for monitoring and managing business stock levels.</p>
+    <div class="bento-item bento-medium" data-project="inventory">
+      <div class="bento-content">
+        <span class="project-type">Frontend</span>
+        <h3>Inventory Management</h3>
+        <p>Real-time web-based solution for monitoring and managing business stock levels.</p>
+        <div class="project-tech">
+          <span>JavaScript</span>
+          <span>Real-time</span>
+        </div>
+      </div>
     </div>
     
-    <div class="project-card">
-      <h3>Re-engineering Study Plan (Full Stack)</h3>
-      <p>Responsive UI plus automated priority-subject generation from Excel-based curricula.</p>
+    <div class="bento-item bento-tall" data-project="studyplan">
+      <div class="bento-content">
+        <span class="project-type">Full Stack</span>
+        <h3>Study Plan System</h3>
+        <p>Responsive UI with automated priority-subject generation from Excel-based curricula.</p>
+        <div class="project-tech">
+          <span>PHP</span>
+          <span>MySQL</span>
+          <span>Excel API</span>
+        </div>
+      </div>
     </div>
     
-    <div class="project-card">
-      <h3>Real Estate Website (Front-End)</h3>
-      <p>Displays available properties with intuitive navigation and comprehensive search functionalities.</p>
+    <div class="bento-item bento-wide" data-project="realestate">
+      <div class="bento-content">
+        <span class="project-type">Frontend</span>
+        <h3>Real Estate Platform</h3>
+        <p>Property listing website with intuitive navigation and comprehensive search.</p>
+        <div class="project-tech">
+          <span>HTML/CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -158,100 +255,128 @@
 <section class="section organizations" data-aos="fade-up" data-aos-delay="300">
   <h2 class="section-heading">Organizations</h2>
 
-  <div class="org-card-grid">
+  <div class="org-grid">
     <div class="org-card">
-      <h3>FlutterFlow Developer Group Manila</h3>
-      <p class="org-role">General Volunteer</p>
-      <p class="org-dates">September 2024 – Present</p>
-      <p class="org-details">
-        Managed event attendance and assisted with volunteer coordination.
-      </p>
+      <div class="org-period">
+        <span class="org-dates">Sept 2024 – Present</span>
+      </div>
+      <div class="org-info">
+        <h3>FlutterFlow Developer Group Manila</h3>
+        <p class="org-role">General Volunteer</p>
+        <p class="org-description">Managed event attendance and assisted with volunteer coordination for the Manila developer community.</p>
+      </div>
     </div>
 
     <div class="org-card">
-      <h3>Microsoft Student Community - PLM</h3>
-      <p class="org-role">Finance</p>
-      <p class="org-dates">August 2024 – Present</p>
-      <p class="org-details">
-        Monitored and documented all expense-related transactions.
-      </p>
+      <div class="org-period">
+        <span class="org-dates">Aug 2024 – Present</span>
+      </div>
+      <div class="org-info">
+        <h3>Microsoft Student Community - PLM</h3>
+        <p class="org-role">Finance Officer</p>
+        <p class="org-description">Monitored and documented all expense-related transactions for the student organization.</p>
+      </div>
     </div>
-
   </div>
 </section>
 
-<section class="section certification" data-aos="fade-up" data-aos-delay="400">
-  <h2 class="section-heading">Certification</h2>
+<section class="section certifications" data-aos="fade-up" data-aos-delay="400">
+  <h2 class="section-heading">Certifications</h2>
 
-  <div class="cert-inline-list">
-    <div class="cert-row">
-      <div class="cert-info">
+  <div class="cert-list">
+    <div class="cert-item">
+      <div class="cert-year">2024</div>
+      <div class="cert-details">
         <h3>Software Engineer</h3>
-        <p class="cert-issuer">Saylor.org</p>
-        <a href="https://learn.saylor.org/pluginfile.php/1/tool_certificate/issues/1732875254/0016580115AA.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate</a>
+        <p>Saylor.org</p>
+        <a href="https://learn.saylor.org/pluginfile.php/1/tool_certificate/issues/1732875254/0016580115AA.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">
+          View Certificate
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
-  </div>
-  <div class="cert-inline-list">
-    <div class="cert-row">
-      <div class="cert-info">
-        <h3>FFDC Extended: Built Next-Gen Apps with FlutterFlow 5.0</h3>
-        <p class="cert-issuer">FFDG Manila</p>
-        <a href="https://drive.google.com/file/d/1M9Uf_o2S0ka8ulyPbMvs8hh0aCZC-a50/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate</a>
+
+    <div class="cert-item">
+      <div class="cert-year">2024</div>
+      <div class="cert-details">
+        <h3>Built Next-Gen Apps with FlutterFlow 5.0</h3>
+        <p>FFDG Manila</p>
+        <a href="https://drive.google.com/file/d/1M9Uf_o2S0ka8ulyPbMvs8hh0aCZC-a50/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+          View Certificate
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
-  </div>
-  <div class="cert-inline-list">
-    <div class="cert-row">
-      <div class="cert-info">
+
+    <div class="cert-item">
+      <div class="cert-year">2024</div>
+      <div class="cert-details">
         <h3>MSConnect: A Guide to Year 1</h3>
-        <p class="cert-issuer">Microsoft Student Community </p>
-        <a href="https://drive.google.com/file/d/16RoZPFzu_QQAy_aifwrqTU4YEf_pWesH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate</a>
+        <p>Microsoft Student Community</p>
+        <a href="https://drive.google.com/file/d/16RoZPFzu_QQAy_aifwrqTU4YEf_pWesH/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+          View Certificate
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
-  </div>
-  <div class="cert-inline-list">
-    <div class="cert-row">
-      <div class="cert-info">
-        <h3>Azure Ignite Series 2: AI, Data, and Web Innovations</h3>
-        <p class="cert-issuer">Microsoft Student Community </p>
-        <a href="https://drive.google.com/file/d/1MSY6gUmFZ9m0cM0UgJKd73-AOkdJr1kb/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate</a>
+
+    <div class="cert-item">
+      <div class="cert-year">2024</div>
+      <div class="cert-details">
+        <h3>Azure Ignite Series 2</h3>
+        <p>Microsoft Student Community</p>
+        <a href="https://drive.google.com/file/d/1MSY6gUmFZ9m0cM0UgJKd73-AOkdJr1kb/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+          View Certificate
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
-  </div>
-  <div class="cert-inline-list">
-    <div class="cert-row">
-      <div class="cert-info">
+
+    <div class="cert-item">
+      <div class="cert-year">2024</div>
+      <div class="cert-details">
         <h3>Byte Me: Challenge Accepted!</h3>
-        <p class="cert-issuer">BSCS Batch 2022</p>
-        <a href="https://drive.google.com/file/d/1BsnnwBSd61N4L4NoLOOmAk_zFULNK2E6/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate</a>
+        <p>BSCS Batch 2022</p>
+        <a href="https://drive.google.com/file/d/1BsnnwBSd61N4L4NoLOOmAk_zFULNK2E6/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+          View Certificate
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
-  </div>
-  <div class="cert-inline-list">
-    <div class="cert-row">
-      <div class="cert-info">
+
+    <div class="cert-item">
+      <div class="cert-year">2024</div>
+      <div class="cert-details">
         <h3>Deep Drive to ML Models</h3>
-        <p class="cert-issuer">Google Developers Student Club </p>
-        <a href="https://drive.google.com/file/d/13Nr7BztvY7Q-Bw-qHiHPdhtb4pm-HH8S/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate</a>
+        <p>Google Developers Student Club</p>
+        <a href="https://drive.google.com/file/d/13Nr7BztvY7Q-Bw-qHiHPdhtb4pm-HH8S/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+          View Certificate
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
-  </div>
-  <div class="cert-inline-list">
-    <div class="cert-row">
-      <div class="cert-info">
-        <h3>OS-Some Adventure: IT’s Expedition into Operating System</h3>
-        <p class="cert-issuer">BSIT Batch 2022</p>
-        <a href="https://drive.google.com/file/d/1lsfSoH6CgI0_lS5TQmpOXma3YPkYqRbk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate</a>
+
+    <div class="cert-item">
+      <div class="cert-year">2024</div>
+      <div class="cert-details">
+        <h3>OS-Some Adventure: IT's Expedition into Operating System</h3>
+        <p>BSIT Batch 2022</p>
+        <a href="https://drive.google.com/file/d/1lsfSoH6CgI0_lS5TQmpOXma3YPkYqRbk/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+          View Certificate
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
-  </div>
-  <div class="cert-inline-list">
-    <div class="cert-row">
-      <div class="cert-info">
+
+    <div class="cert-item">
+      <div class="cert-year">2024</div>
+      <div class="cert-details">
         <h3>DTP Learning Hour</h3>
-        <p class="cert-issuer">Digital Thumbprint - Globe</p>
-        <a href="https://drive.google.com/file/d/1wobhxhUi2NrEEmDrn9jIxESIPMOnIefs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate</a>
+        <p>Digital Thumbprint - Globe</p>
+        <a href="https://drive.google.com/file/d/1wobhxhUi2NrEEmDrn9jIxESIPMOnIefs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">
+          View Certificate
+          <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
   </div>
@@ -262,16 +387,24 @@
 
   <div class="education-timeline">
     <div class="timeline-item">
+      <div class="timeline-bullet">
+        <div class="bullet-circle"></div>
+        <div class="bullet-line" data-line-progress></div>
+      </div>
       <div class="timeline-date">2022 – Present</div>
       <div class="timeline-content">
         <h3>Pamantasan ng Lungsod ng Maynila</h3>
-        <p>BSIT (Dean’s Lister)<br />
+        <p>BSIT (Dean's Lister)<br />
           <em>Expected Graduation: 2026</em>
         </p>
       </div>
     </div>
 
     <div class="timeline-item">
+      <div class="timeline-bullet">
+        <div class="bullet-circle"></div>
+        <div class="bullet-line" data-line-progress></div>
+      </div>
       <div class="timeline-date">2020 – 2022</div>
       <div class="timeline-content">
         <h3>Universidad De Manila (Secondary)</h3>
@@ -280,6 +413,10 @@
     </div>
 
     <div class="timeline-item">
+      <div class="timeline-bullet">
+        <div class="bullet-circle"></div>
+        <div class="bullet-line" data-line-progress></div>
+      </div>
       <div class="timeline-date">2016 – 2020</div>
       <div class="timeline-content">
         <h3>Manuel A. Roxas High School (Secondary)</h3>
@@ -288,6 +425,10 @@
     </div>
 
     <div class="timeline-item">
+      <div class="timeline-bullet">
+        <div class="bullet-circle"></div>
+        <div class="bullet-line" data-line-progress></div>
+      </div>
       <div class="timeline-date">2011 – 2016</div>
       <div class="timeline-content">
         <h3>Jacinto Zamora Elementary School (Primary)</h3>
