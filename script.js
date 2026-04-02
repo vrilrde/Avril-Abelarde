@@ -329,7 +329,26 @@ window.addEventListener('scroll', handleScroll);
       description: 'Property listing website with intuitive navigation and comprehensive search.',
       skills: ['HTML/CSS','JavaScript'],
       published: 'Published on Feb 14, 2024',
-      gallery: []
+      gallery: [
+        'assets/images/realestate/img_1.png',
+        'assets/images/realestate/img_2.png',
+        'assets/images/realestate/img_3.png',
+        'assets/images/realestate/img_4.png',
+        'assets/images/realestate/img_5.png',
+        'assets/images/realestate/img_6.png',
+        'assets/images/realestate/img_7.png',
+        'assets/images/realestate/img_8.png',
+        'assets/images/realestate/img_9.png',
+        'assets/images/realestate/img_10.png',
+        'assets/images/realestate/img_11.png',
+        'assets/images/realestate/img_12.png',
+        'assets/images/realestate/img_13.png',
+        'assets/images/realestate/img_14.png',
+        'assets/images/realestate/img_15.png',
+        'assets/images/realestate/img_16.png',
+        'assets/images/realestate/img_17.png',
+        'assets/images/realestate/img_18.png'
+      ]
     },
     beanvision: {
       title: 'Coffee Bean Scanner',
@@ -348,6 +367,28 @@ window.addEventListener('scroll', handleScroll);
         'assets/images/beanscan/img_8.jpg',
         'assets/images/beanscan/img_9.png',
         'assets/images/beanscan/img_10.png'
+      ]
+    },
+    miffydressup: {
+      title: 'Miffy Fits',
+      role: 'Personal Project',
+      description: 'A pixel art dress‑up web game featuring Miffy. All pixel dresses, shoes, accessories, and buttons were hand‑drawn using the My Pixel Art app. Players can mix and match outfits in a fun, interactive browser experience.',
+      skills: ['HTML/CSS','JavaScript','Pixel Art'],
+      published: 'Personal Project',
+      gallery: [
+        'assets/images/miffyfits/img_1.png',
+        'assets/images/miffyfits/img_2.png'
+      ]
+    },
+    openvetai: {
+      title: 'OpenVetAI',
+      role: 'Front‑end Engineer',
+      description: 'A proposal design for a modern veterinary healthcare web application. Features smooth scroll‑driven animations powered by GSAP and a polished, responsive interface prototyped with Framer.',
+      skills: ['JavaScript','GSAP','Framer','UI/UX'],
+      published: 'Proposal Design',
+      gallery: [
+        'assets/images/opevetai/vid_1.mp4',
+        'assets/images/opevetai/img_1.png'
       ]
     }
   };
@@ -368,11 +409,21 @@ window.addEventListener('scroll', handleScroll);
     if(selector === 'gallery') {
       el.innerHTML = '';
       (value || []).forEach(src => {
-        const img = document.createElement('img');
-        img.loading = 'lazy';
-        img.src = src;
-        img.alt = '';
-        el.appendChild(img);
+        if(src.match(/\.(mp4|webm|ogg)$/i)) {
+          const video = document.createElement('video');
+          video.src = src;
+          video.controls = true;
+          video.muted = true;
+          video.playsInline = true;
+          video.preload = 'metadata';
+          el.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.loading = 'lazy';
+          img.src = src;
+          img.alt = '';
+          el.appendChild(img);
+        }
       });
       return;
     }
