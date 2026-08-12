@@ -238,10 +238,10 @@ window.addEventListener('scroll', handleScroll);
   const PROJECTS = {
     alerto: {
       title: 'Alerto MNL',
-      role: 'Lead Mobile Developer',
-      description: 'Safety and awareness mobile application for Manila citizens featuring an SOS button that alerts nearby officers within a 3km radius. Built with React Native and real-time mapping.',
-      skills: ['React Native','Mapbox API','Realtime','UI/UX'],
-      published: 'Published on May 12, 2024',
+      role: 'Full-Stack Developer',
+      description: 'Safety and awareness mobile application for Manila citizens featuring SOS button functionality that sends alerts to police officers within a 3km radius. Integrated station-based crime mapping through Mapbox API with real-time crime data visualization across Manila.',
+      skills: ['Expo Go','React Native','TypeScript','PHP','Mapbox API','Realtime'],
+      published: 'January 2025 - May 2025',
       gallery: [
         'assets/images/alertomnl/img_1.jpg',
         'assets/images/alertomnl/img_2.jpg',
@@ -259,8 +259,7 @@ window.addEventListener('scroll', handleScroll);
         'assets/images/alertomnl/img_14.jpg',
         'assets/images/alertomnl/img_15.jpg',
         'assets/images/alertomnl/img_16.jpg',
-        'assets/images/alertomnl/img_17.jpg',
-        'assets/images/alertomnl/img_18.png'
+        'assets/images/alertomnl/img_17.png'
       ]
     },
     appointmate: {
@@ -351,11 +350,11 @@ window.addEventListener('scroll', handleScroll);
       ]
     },
     beanvision: {
-      title: 'Coffee Bean Scanner',
-      role: 'Mobile Developer',
-      description: 'A Dart/Flutter mobile application that scans coffee beans to identify bean type (e.g., Arabica, Robusta) and detects surface defects such as cracks, discoloration, insect damage, and mold using deep learning with CNN and Fast R-CNN. Supports live camera and gallery input with offline inference.',
+      title: 'BeanScanAI',
+      role: 'Full-Stack Developer',
+      description: 'An AI mobile application built with Dart and Flutter that scans coffee beans to identify bean type and detects surface defects using deep learning with CNN and Fast R-CNN. Supports live camera and gallery input with offline inference.',
       skills: ['Flutter','Dart','CNN','Fast R-CNN','Deep Learning'],
-      published: 'Currently in development',
+      published: 'June 2025 - December 2025',
       gallery: [
         'assets/images/beanscan/img_1.png',
         'assets/images/beanscan/img_2.png',
