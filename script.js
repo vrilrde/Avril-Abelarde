@@ -193,6 +193,25 @@ timelineItems.forEach(item => {
 timelineObserver.observe(item);
 });
 
+// Project tiles: clip-path reveal, staggered within each project
+const workTiles = document.querySelectorAll('.work-tile');
+
+const workTileObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('in-view');
+    const video = entry.target.querySelector('video');
+    if (video) video.play().catch(() => {});
+    workTileObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.2 });
+
+workTiles.forEach(tile => {
+  const index = Array.from(tile.parentElement.children).indexOf(tile);
+  tile.style.setProperty('--i', index);
+  workTileObserver.observe(tile);
+});
+
 // Parallax scrolling effects
 const parallaxElements = document.querySelectorAll('.parallax-slow, .parallax-medium, .parallax-fast');
 
@@ -236,6 +255,23 @@ window.addEventListener('scroll', handleScroll);
 
   // Simple data source; extend as needed
   const PROJECTS = {
+    clickclub: {
+      title: 'Click Club Photobooth',
+      role: 'Software Developer',
+      description: 'A free, browser-based photobooth where users pick a booth inspired by a music album era, each with its own colours, stickers, and strip design. Features a live camera preview, a three-two-one countdown, four strip layouts (classic 4-shot, trio, 2×2 grid, six-pack), and saving the finished strip as an image. No app or sign-up needed, and photos never leave the device.',
+      skills: ['HTML/CSS','JavaScript','Camera API','Canvas','Vercel'],
+      published: 'Personal Project · 2026',
+      link: 'https://click-club-photobooth.vercel.app/',
+      gallery: [
+        'assets/images/clickclub/img_1.png',
+        'assets/images/clickclub/img_2.png',
+        'assets/images/clickclub/img_3.png',
+        'assets/images/clickclub/img_4.png',
+        'assets/images/clickclub/img_5.png',
+        'assets/images/clickclub/img_6.png',
+        'assets/images/clickclub/img_7.png'
+      ]
+    },
     alerto: {
       title: 'Alerto MNL',
       role: 'Full-Stack Developer',
@@ -426,6 +462,11 @@ window.addEventListener('scroll', handleScroll);
       });
       return;
     }
+    if(selector === 'link') {
+      if(value) el.href = value; else el.removeAttribute('href');
+      el.hidden = !value;
+      return;
+    }
     el.textContent = value || '';
   }
 
@@ -437,6 +478,7 @@ window.addEventListener('scroll', handleScroll);
     setField('description', data.description);
     setField('skills', data.skills);
     setField('published', data.published);
+    setField('link', data.link);
     setField('gallery', data.gallery);
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
@@ -448,9 +490,9 @@ window.addEventListener('scroll', handleScroll);
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.bento-item').forEach(card => {
-    card.addEventListener('click', () => {
-      const key = card.getAttribute('data-project');
+  document.querySelectorAll('[data-open-project]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const key = trigger.closest('[data-project]').getAttribute('data-project');
       openModal(key);
     });
   });

@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="Avril Abelarde's portfolio for full-stack development, UI/UX design, mobile apps, and QA-focused digital projects." />
+  <meta name="description" content="Avril Abelarde's portfolio for software development, UI/UX design, mobile apps, and QA-focused digital projects." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Avril Abelarde</title>
+  <link rel="canonical" href="https://avril-abelarde.vercel.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Avril Abelarde | Software Developer &amp; UI/UX Designer" />
+  <meta property="og:description" content="Avril Abelarde's portfolio for software development, UI/UX design, mobile apps, and QA-focused digital projects." />
+  <meta property="og:url" content="https://avril-abelarde.vercel.app/" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
@@ -83,7 +88,7 @@
       </span>
       <br />
       <span data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
-        <strong>Full-Stack Developer &amp; UI/UX Designer</strong>
+        <strong>Software Developer &amp; UI/UX Designer</strong>
       </span>
       <br />
       <span data-aos="fade-right" data-aos-duration="800" data-aos-delay="400">
@@ -221,112 +226,253 @@
 </section>
 
 
-<section class="section projects scroll-fade-in" data-aos="fade-up" data-aos-delay="200">
+<section class="section projects" data-aos="fade-up" data-aos-delay="200">
   <h2 class="section-heading scroll-slide-right">Projects</h2>
   
-  <div class="bento-grid">
-    <div class="bento-item bento-large scroll-scale-in stagger-1" data-project="alerto">
-      <div class="bento-content">
-        <span class="project-type">Mobile App</span>
-        <h3>Alerto MNL</h3>
-        <p>Safety and awareness mobile app for Manila citizens with SOS alerts, station-based crime mapping, and real-time crime data visualization.</p>
-        <div class="project-tech">
-          <span>Expo Go</span>
-          <span>React Native</span>
-          <span>TypeScript</span>
-          <span>PHP</span>
-          <span>Mapbox API</span>
+  <div class="works">
+    <article class="work" data-project="clickclub">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">Web App</span>
+          <h3 class="work-title">Click Club Photobooth</h3>
+          <p class="work-summary">Free online photobooth with album-era themed booths, live camera capture, multiple strip layouts, and downloadable photo strips.</p>
+        </div>
+        <div class="work-links">
+          <a class="work-link" href="https://click-club-photobooth.vercel.app/" target="_blank" rel="noopener noreferrer">Live site &#8599;</a>
+          <button type="button" class="work-link" data-open-project>View project</button>
         </div>
       </div>
-    </div>
-    
-    <div class="bento-item bento-small scroll-rotate-in stagger-2" data-project="intelligloves">
-      <div class="bento-content">
-        <span class="project-type">3D Design</span>
-        <h3>Intelligloves</h3>
-        <p>Assistive gloves prototype for hearing & speech impairments.</p>
-        <div class="project-tech">
-          <span>Blender</span>
-        </div>
+      <div class="work-media work-media--classic">
+        <button type="button" class="work-tile work-tile--main" data-open-project aria-label="View Click Club Photobooth project">
+          <span class="work-tile__inner"><img src="assets/images/clickclub/thumbs/img_2.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--side work-tile--top" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/clickclub/thumbs/img_7.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/clickclub/thumbs/img_3.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/clickclub/thumbs/img_5.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/clickclub/thumbs/img_6.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
       </div>
-    </div>
-    
-    <div class="bento-item bento-medium scroll-slide-left stagger-3" data-project="beanvision">
-      <div class="bento-content">
-        <span class="project-type">Mobile App</span>
-        <h3>BeanScanAI</h3>
-        <p>AI mobile app that scans coffee beans, identifies bean type, and detects surface defects through CNN and Fast R-CNN models.</p>
-        <div class="project-tech">
-          <span>Flutter</span>
-          <span>Dart</span>
-          <span>CNN</span>
-          <span>Deep Learning</span>
-        </div>
-      </div>
-    </div>
-    
-    <div class="bento-item bento-medium scroll-slide-right stagger-4" data-project="inventory">
-      <div class="bento-content">
-        <span class="project-type">Frontend</span>
-        <h3>Inventory Management</h3>
-        <p>Real-time web-based solution for monitoring and managing business stock levels.</p>
-        <div class="project-tech">
-          <span>JavaScript</span>
-          <span>Real-time</span>
-        </div>
-      </div>
-    </div>
-    
-    <div class="bento-item bento-tall scroll-scale-in stagger-5" data-project="studyplan">
-      <div class="bento-content">
-        <span class="project-type">Full Stack</span>
-        <h3>Re-engineering Study Plan System</h3>
-        <p>Responsive UI with automated priority-subject generation from Excel-based curricula.</p>
-        <div class="project-tech">
-          <span>PHP</span>
-          <span>MySQL</span>
-          <span>Excel API</span>
-        </div>
-      </div>
-    </div>
-    
-    <div class="bento-item bento-wide scroll-rotate-in stagger-6" data-project="realestate">
-      <div class="bento-content">
-        <span class="project-type">Frontend</span>
-        <h3>Real Estate Platform</h3>
-        <p>Property listing website with intuitive navigation and comprehensive search.</p>
-        <div class="project-tech">
-          <span>HTML/CSS</span>
-          <span>JavaScript</span>
-        </div>
-      </div>
-    </div>
+    </article>
 
-    <div class="bento-item bento-medium scroll-slide-left stagger-7" data-project="miffydressup">
-      <div class="bento-content">
-        <span class="project-type">Web Game</span>
-        <h3>Miffy Fits</h3>
-        <p>Pixel art dress-up game featuring Miffy with hand-drawn dresses, shoes, and accessories.</p>
-        <div class="project-tech">
-          <span>HTML/CSS</span>
-          <span>JavaScript</span>
-          <span>Pixel Art</span>
+    <article class="work" data-project="alerto">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">Mobile App</span>
+          <h3 class="work-title">Alerto MNL</h3>
+          <p class="work-summary">Safety and awareness mobile app for Manila citizens with SOS alerts, station-based crime mapping, and real-time crime data visualization.</p>
+        </div>
+        <div class="work-links">
+          <button type="button" class="work-link" data-open-project>View project</button>
         </div>
       </div>
-    </div>
+      <div class="work-media work-media--phone">
+        <button type="button" class="work-tile work-tile--phone" data-open-project aria-label="View Alerto MNL project">
+          <span class="work-tile__inner"><img src="assets/images/alertomnl/thumbs/img_1.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--phone" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/alertomnl/thumbs/img_5.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--phone" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/alertomnl/thumbs/img_14.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--phone" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/alertomnl/thumbs/img_15.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--phone" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/alertomnl/thumbs/img_7.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+      </div>
+    </article>
 
-    <div class="bento-item bento-medium scroll-slide-right stagger-8" data-project="openvetai">
-      <div class="bento-content">
-        <span class="project-type">UI/UX Design</span>
-        <h3>OpenVetAI</h3>
-        <p>Proposal design for a veterinary healthcare web app with smooth animations and modern UI.</p>
-        <div class="project-tech">
-          <span>JavaScript</span>
-          <span>GSAP</span>
-          <span>Framer</span>
+    <article class="work" data-project="intelligloves">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">3D Design</span>
+          <h3 class="work-title">Intelligloves</h3>
+          <p class="work-summary">Assistive gloves prototype for hearing &amp; speech impairments.</p>
+        </div>
+        <div class="work-links">
+          <button type="button" class="work-link" data-open-project>View project</button>
         </div>
       </div>
-    </div>
+      <div class="work-media work-media--classic">
+        <button type="button" class="work-tile work-tile--main" data-open-project aria-label="View Intelligloves project">
+          <span class="work-tile__inner"><img src="assets/images/intelligloves/thumbs/img_4.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--side" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/intelligloves/thumbs/img_5.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/intelligloves/thumbs/img_1.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/intelligloves/thumbs/img_2.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/intelligloves/thumbs/img_3.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+      </div>
+    </article>
+
+    <article class="work" data-project="beanvision">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">Mobile App</span>
+          <h3 class="work-title">BeanScanAI</h3>
+          <p class="work-summary">AI mobile app that scans coffee beans, identifies bean type, and detects surface defects through CNN and Fast R-CNN models.</p>
+        </div>
+        <div class="work-links">
+          <button type="button" class="work-link" data-open-project>View project</button>
+        </div>
+      </div>
+      <div class="work-media work-media--phone">
+        <button type="button" class="work-tile work-tile--phone" data-open-project aria-label="View BeanScanAI project">
+          <span class="work-tile__inner"><img src="assets/images/beanscan/thumbs/img_1.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--phone" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/beanscan/thumbs/img_2.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--phone" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/beanscan/thumbs/img_7.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--phone" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/beanscan/thumbs/img_8.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--phone" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/beanscan/thumbs/img_9.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+      </div>
+    </article>
+
+    <article class="work" data-project="inventory">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">Frontend</span>
+          <h3 class="work-title">Inventory Management</h3>
+          <p class="work-summary">Real-time web-based solution for monitoring and managing business stock levels.</p>
+        </div>
+        <div class="work-links">
+          <button type="button" class="work-link" data-open-project>View project</button>
+        </div>
+      </div>
+      <div class="work-media work-media--wide">
+        <button type="button" class="work-tile work-tile--main" data-open-project aria-label="View Inventory Management project">
+          <span class="work-tile__inner"><img src="assets/images/invmanagement/thumbs/img_3.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/invmanagement/thumbs/img_2.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/invmanagement/thumbs/img_5.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/invmanagement/thumbs/img_6.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+      </div>
+    </article>
+
+    <article class="work" data-project="studyplan">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">Full Stack</span>
+          <h3 class="work-title">Re-engineering Study Plan System</h3>
+          <p class="work-summary">Responsive UI with automated priority-subject generation from Excel-based curricula.</p>
+        </div>
+        <div class="work-links">
+          <button type="button" class="work-link" data-open-project>View project</button>
+        </div>
+      </div>
+      <div class="work-media work-media--wide">
+        <button type="button" class="work-tile work-tile--main" data-open-project aria-label="View Re-engineering Study Plan System project">
+          <span class="work-tile__inner"><img src="assets/images/studyplan/thumbs/img_7.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/studyplan/thumbs/img_4.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/studyplan/thumbs/img_9.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/studyplan/thumbs/img_11.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+      </div>
+    </article>
+
+    <article class="work" data-project="realestate">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">Frontend</span>
+          <h3 class="work-title">Real Estate Platform</h3>
+          <p class="work-summary">Property listing website with intuitive navigation and comprehensive search.</p>
+        </div>
+        <div class="work-links">
+          <button type="button" class="work-link" data-open-project>View project</button>
+        </div>
+      </div>
+      <div class="work-media work-media--wide">
+        <button type="button" class="work-tile work-tile--main" data-open-project aria-label="View Real Estate Platform project">
+          <span class="work-tile__inner"><img src="assets/images/realestate/thumbs/img_1.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/realestate/thumbs/img_2.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/realestate/thumbs/img_9.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/realestate/thumbs/img_16.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+      </div>
+    </article>
+
+    <article class="work" data-project="miffydressup">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">Web Game</span>
+          <h3 class="work-title">Miffy Fits</h3>
+          <p class="work-summary">Pixel art dress-up game featuring Miffy with hand-drawn dresses, shoes, and accessories.</p>
+        </div>
+        <div class="work-links">
+          <button type="button" class="work-link" data-open-project>View project</button>
+        </div>
+      </div>
+      <div class="work-media work-media--pair">
+        <button type="button" class="work-tile work-tile--pair" data-open-project aria-label="View Miffy Fits project">
+          <span class="work-tile__inner"><img src="assets/images/miffyfits/thumbs/img_1.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+        <button type="button" class="work-tile work-tile--pair" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/miffyfits/thumbs/img_2.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+      </div>
+    </article>
+
+    <article class="work" data-project="openvetai">
+      <div class="work-head scroll-fade-in">
+        <div class="work-head__text">
+          <span class="work-tag">UI/UX Design</span>
+          <h3 class="work-title">OpenVetAI</h3>
+          <p class="work-summary">Proposal design for a veterinary healthcare web app with smooth animations and modern UI.</p>
+        </div>
+        <div class="work-links">
+          <button type="button" class="work-link" data-open-project>View project</button>
+        </div>
+      </div>
+      <div class="work-media work-media--pair">
+        <button type="button" class="work-tile work-tile--pair" data-open-project aria-label="View OpenVetAI project">
+          <span class="work-tile__inner"><video src="assets/images/opevetai/vid_1.mp4" muted loop playsinline preload="none"></video></span>
+        </button>
+        <button type="button" class="work-tile work-tile--pair" data-open-project tabindex="-1" aria-hidden="true">
+          <span class="work-tile__inner"><img src="assets/images/opevetai/thumbs/img_1.webp" alt="" loading="lazy" decoding="async" /></span>
+        </button>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -536,11 +682,11 @@
         <div class="bullet-circle"></div>
         <div class="bullet-line" data-line-progress></div>
       </div>
-      <div class="timeline-date">2022 – Present</div>
+      <div class="timeline-date">2022 – 2026</div>
       <div class="timeline-content">
         <h3>Pamantasan ng Lungsod ng Maynila</h3>
         <p>Bachelor of Science in Information Technology - Manila, Philippines<br />
-          <em>Cum Laude · Expected Graduation: 2026</em>
+          <em>Cum Laude · Graduated August 2026</em>
         </p>
       </div>
     </div>
@@ -605,6 +751,7 @@
           </div>
           <div class="project-modal__chips" data-field="skills"></div>
           <p class="project-modal__meta" data-field="published"></p>
+          <a class="project-modal__link" data-field="link" target="_blank" rel="noopener noreferrer">Visit live site &rarr;</a>
         </aside>
         <section class="project-modal__gallery" data-field="gallery"></section>
       </div>
